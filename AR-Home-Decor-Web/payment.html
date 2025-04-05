@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment | AR Home Decor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .card-input:focus {
+            box-shadow: 0 0 0 1px #3b82f6;
+        }
+        .payment-method {
+            transition: all 0.2s ease;
+        }
+        .payment-method:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- App Bar -->
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="flex items-center justify-between">
+            <a href="cart.html" class="p-2 rounded-full hover:bg-blue-700">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 class="text-xl font-bold">Payment</h1>
+            <div class="w-8"></div> <!-- Spacer for balance -->
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="p-4">
+        <!-- Order Summary -->
+        <div class="bg-white rounded-lg shadow-md p-4 mb-6">
+            <h2 class="text-lg font-bold mb-4">Order Summary</h2>
+            <div class="space-y-3 mb-4">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span>$978.97</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Shipping</span>
+                    <span>$0.00</span>
+                </div>
+                <div class="flex justify-between font-bold text-lg border-t pt-2 mt-2">
+                    <span>Total</span>
+                    <span>$978.97</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+            <div class="p-4 border-b">
+                <h2 class="text-lg font-bold">Payment Method</h2>
+            </div>
+            <div class="divide-y">
+                <label class="block payment-method">
+                    <div class="flex items-center p-4">
+                        <input type="radio" name="payment" checked class="mr-3">
+                        <div class="flex-1">
+                            <div class="flex items-center">
+                                <i class="fab fa-cc-visa text-2xl text-blue-600 mr-2"></i>
+                                <span>Visa ending in 4242</span>
+                            </div>
+                            <div class="text-sm text-gray-500 mt-1">Expires 04/2025</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </label>
+                <label class="block payment-method">
+                    <div class="flex items-center p-4">
+                        <input type="radio" name="payment" class="mr-3">
+                        <div class="flex-1">
+                            <div class="flex items-center">
+                                <i class="fab fa-cc-mastercard text-2xl text-red-500 mr-2"></i>
+                                <span>Mastercard ending in 5555</span>
+                            </div>
+                            <div class="text-sm text-gray-500 mt-1">Expires 08/2024</div>
+                        </div>
+                        <i class="fas fa-chevron-right text-gray-400"></i>
+                    </div>
+                </label>
+                <a href="#" class="block p-4 text-blue-600 hover:bg-gray-50">
+                    <div class="flex items-center">
+                        <i class="fas fa-plus-circle mr-3"></i>
+                        <span>Add new payment method</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Shipping Address -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-6">
+            <div class="p-4 border-b">
+                <h2 class="text-lg font-bold">Shipping Address</h2>
+            </div>
+            <div class="p-4">
+                <div class="mb-2">
+                    <span class="font-medium">Sarah Johnson</span>
+                </div>
+                <div class="text-gray-600 mb-2">
+                    123 Main Street<br>
+                    Apt 4B<br>
+                    New York, NY 10001<br>
+                    United States
+                </div>
+                <a href="#" class="text-blue-600 text-sm hover:underline">Change address</a>
+            </div>
+        </div>
+
+        <!-- Place Order Button -->
+        <button id="placeOrder" class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 mb-2">
+            Place Order
+        </button>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        document.getElementById('placeOrder').addEventListener('click', function() {
+            // In a real app, you would process payment here
+            alert('Payment would be processed here in a real application');
+            window.location.href = 'order-confirmation.html';
+        });
+    </script>
+</body>
+</html>
