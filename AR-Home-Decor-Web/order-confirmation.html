@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed | AR Home Decor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .confirmation-icon {
+            width: 80px;
+            height: 80px;
+        }
+        .order-timeline {
+            position: relative;
+        }
+        .order-timeline::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e5e7eb;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center p-4">
+        <div class="bg-white rounded-xl shadow-lg p-8 max-w-md w-full text-center">
+            <div class="flex justify-center mb-6">
+                <div class="confirmation-icon bg-green-100 rounded-full flex items-center justify-center">
+                    <i class="fas fa-check text-green-500 text-4xl"></i>
+                </div>
+            </div>
+            <h1 class="text-2xl font-bold mb-2">Order Confirmed!</h1>
+            <p class="text-gray-600 mb-6">Thank you for your purchase. Your order #1002 has been placed successfully.</p>
+            
+            <div class="bg-gray-50 rounded-lg p-4 mb-6 text-left">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Estimated Delivery</span>
+                    <span class="font-medium">June 20, 2023</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Total Paid</span>
+                    <span class="font-bold">$978.97</span>
+                </div>
+            </div>
+
+            <!-- Order Timeline -->
+            <div class="order-timeline text-left mb-6 pl-6">
+                <div class="relative mb-4">
+                    <div class="absolute left-0 w-6 h-6 rounded-full bg-green-500 flex items-center justify-center -ml-6">
+                        <i class="fas fa-check text-white text-xs"></i>
+                    </div>
+                    <h3 class="font-medium">Order Placed</h3>
+                    <p class="text-sm text-gray-500">Today at 2:45 PM</p>
+                </div>
+                <div class="relative mb-4">
+                    <div class="absolute left-0 w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center -ml-6"></div>
+                    <h3 class="font-medium text-gray-400">Processing</h3>
+                    <p class="text-sm text-gray-400">Expected tomorrow</p>
+                </div>
+                <div class="relative">
+                    <div class="absolute left-0 w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center -ml-6"></div>
+                    <h3 class="font-medium text-gray-400">Delivered</h3>
+                    <p class="text-sm text-gray-400">Expected June 20</p>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <a href="products.html" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700">
+                    Continue Shopping
+                </a>
+                <a href="profile.html" class="block w-full border border-blue-600 text-blue-600 py-3 rounded-lg font-bold hover:bg-blue-50">
+                    View Order Details
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Clear cart after successful order
+        localStorage.removeItem('cart');
+        
+        // In a real app, you would track the order here
+        console.log('Order completed successfully');
+    </script>
+</body>
+</html>
