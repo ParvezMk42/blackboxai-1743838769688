@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | AR Home Decor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- App Bar -->
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="flex items-center justify-between">
+            <button id="menuBtn" class="p-2 rounded-full hover:bg-blue-700">
+                <i class="fas fa-bars"></i>
+            </button>
+            <h1 class="text-xl font-bold">Our Products</h1>
+            <div class="flex space-x-4">
+                <button class="p-2 rounded-full hover:bg-blue-700">
+                    <i class="fas fa-search"></i>
+                </button>
+                <a href="cart.html" class="p-2 rounded-full hover:bg-blue-700">
+                    <i class="fas fa-shopping-cart"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="p-4">
+        <!-- Categories -->
+        <div class="flex overflow-x-auto space-x-2 mb-6 pb-2">
+            <button class="px-4 py-2 bg-blue-600 text-white rounded-full whitespace-nowrap">All</button>
+            <button class="px-4 py-2 bg-white rounded-full whitespace-nowrap">Sofas</button>
+            <button class="px-4 py-2 bg-white rounded-full whitespace-nowrap">Chairs</button>
+            <button class="px-4 py-2 bg-white rounded-full whitespace-nowrap">Tables</button>
+            <button class="px-4 py-2 bg-white rounded-full whitespace-nowrap">Lamps</button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Product Card 1 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-couch text-6xl text-gray-400"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1">Modern Sofa</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(24)</span>
+                    </div>
+                    <p class="text-gray-700 mb-3">$599.99</p>
+                    <div class="flex space-x-2">
+                        <a href="product-detail.html" class="flex-1 bg-blue-600 text-white py-2 text-center rounded hover:bg-blue-700">
+                            View
+                        </a>
+                        <button class="w-10 bg-gray-200 rounded hover:bg-gray-300">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-chair text-6xl text-gray-400"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1">Accent Chair</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(36)</span>
+                    </div>
+                    <p class="text-gray-700 mb-3">$249.99</p>
+                    <div class="flex space-x-2">
+                        <a href="product-detail.html" class="flex-1 bg-blue-600 text-white py-2 text-center rounded hover:bg-blue-700">
+                            View
+                        </a>
+                        <button class="w-10 bg-gray-200 rounded hover:bg-gray-300">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300">
+                <div class="h-48 bg-gray-200 flex items-center justify-center">
+                    <i class="fas fa-lightbulb text-6xl text-gray-400"></i>
+                </div>
+                <div class="p-4">
+                    <h3 class="font-bold text-lg mb-1">Modern Lamp</h3>
+                    <div class="flex items-center mb-2">
+                        <div class="flex text-yellow-400 text-sm">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="text-gray-500 text-sm ml-1">(42)</span>
+                    </div>
+                    <p class="text-gray-700 mb-3">$129.99</p>
+                    <div class="flex space-x-2">
+                        <a href="product-detail.html" class="flex-1 bg-blue-600 text-white py-2 text-center rounded hover:bg-blue-700">
+                            View
+                        </a>
+                        <button class="w-10 bg-gray-200 rounded hover:bg-gray-300">
+                            <i class="fas fa-shopping-cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
