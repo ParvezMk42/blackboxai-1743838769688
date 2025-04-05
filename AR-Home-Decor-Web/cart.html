@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart | AR Home Decor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .cart-item:hover {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <!-- App Bar -->
+    <header class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="flex items-center justify-between">
+            <a href="products.html" class="p-2 rounded-full hover:bg-blue-700">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h1 class="text-xl font-bold">Your Cart</h1>
+            <div class="w-8"></div> <!-- Spacer for balance -->
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="p-4">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4">
+            <!-- Cart items will be loaded via JS -->
+            <div id="cartItems" class="divide-y">
+                <!-- Dynamic content goes here -->
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-4 mb-4">
+            <div class="flex justify-between mb-2">
+                <span class="font-medium">Subtotal</span>
+                <span id="subtotal">$0.00</span>
+            </div>
+            <div class="flex justify-between mb-2">
+                <span class="font-medium">Shipping</span>
+                <span>$0.00</span>
+            </div>
+            <div class="flex justify-between font-bold text-lg border-t pt-2 mt-2">
+                <span>Total</span>
+                <span id="total">$0.00</span>
+            </div>
+        </div>
+
+        <a href="payment.html" class="block w-full bg-blue-600 text-white py-3 text-center rounded-lg font-bold hover:bg-blue-700 mb-2">
+            Proceed to Checkout
+        </a>
+        <a href="products.html" class="block w-full border border-blue-600 text-blue-600 py-3 text-center rounded-lg font-bold hover:bg-blue-50">
+            Continue Shopping
+        </a>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Cart-specific functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItemsContainer = document.getElementById('cartItems');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+
+            // Render cart items
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="p-4 text-center text-gray-500">
+                        <i class="fas fa-shopping-cart text-4xl mb-2"></i>
+                        <p>Your cart is empty</p>
+                    </div>
+                `;
+            } else {
+                let subtotal = 0;
+                cart.forEach((item, index) => {
+                    subtotal += item.price;
+                    const cartItem = `
+                        <div class="cart-item p-4 flex items-center transition-colors">
+                            <div class="w-16 h-16 bg-gray-200 rounded flex items-center justify-center mr-4">
+                                <i class="fas ${item.icon} text-2xl text-gray-400"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium">${item.name}</h3>
+                                <p class="text-gray-600">$${item.price.toFixed(2)}</p>
+                            </div>
+                            <button class="text-red-500 remove-item" data-index="${index}">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItemsContainer.innerHTML += cartItem;
+                });
+
+                subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+                totalElement.textContent = `$${subtotal.toFixed(2)}`;
+
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.dataset.index);
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        location.reload(); // Refresh to show updated cart
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
